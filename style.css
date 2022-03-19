@@ -1,0 +1,19 @@
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  margin-top: 10px;
+}
+
+.hidden{
+    display: none;
+}
+
+
