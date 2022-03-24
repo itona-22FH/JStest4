@@ -118,14 +118,19 @@ startQuizBtn.addEventListener('click', function () {
 returnHomeBtn.addEventListener('click', function () {
   quizTitle.textContent = 'ようこそ';
   quiz.textContent = '以下のボタンをクリックしてください';
-  returnHomeBtn.classList.add('hidden');
-  startQuizBtn.classList.remove('hidden');
+  returnHomeBtn.classList.toggle('hidden');
+  startQuizBtn.classList.toggle('hidden');
 });
 
 const fetchQuiz = async function () {
-  const quizRes = await fetch(QUIZ_API_URL);
-  const quizData = await quizRes.json();
-  const quizInstance = new Quiz(quizData);
-  const index = 1;
-  makeQuiz(quizInstance, index);
+  try{
+    const quizRes = await fetch(QUIZ_API_URL);
+    const quizData = await quizRes.json();
+    const quizInstance = new Quiz(quizData);
+    const index = 1;
+    makeQuiz(quizInstance, index);
+  }catch(err){
+    alert(err);
+    returnHomeBtn.classList.toggle('hidden')
+  }
 };
