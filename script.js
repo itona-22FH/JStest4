@@ -123,14 +123,13 @@ returnHomeBtn.addEventListener('click', function () {
 });
 
 const fetchQuiz = async function () {
-  try{
-    const quizRes = await fetch(QUIZ_API_URL);
-    const quizData = await quizRes.json();
+  try {
+    const quizRes = await quizRes.json();
     const quizInstance = new Quiz(quizData);
     const index = 1;
     makeQuiz(quizInstance, index);
-  }catch(err){
+  } catch (err) {
     alert(err);
-    returnHomeBtn.classList.toggle('hidden')
+    returnHomeBtn.classList.toggle('hidden');
   }
 };
