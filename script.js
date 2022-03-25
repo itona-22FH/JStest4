@@ -124,7 +124,8 @@ returnHomeBtn.addEventListener('click', function () {
 
 const fetchQuiz = async function () {
   try {
-    const quizRes = await quizRes.json();
+    const quizRes = await fetch(QUIZ_API_URL);
+    const quizData = await quizRes.json();
     const quizInstance = new Quiz(quizData);
     const index = 1;
     makeQuiz(quizInstance, index);
